@@ -32,6 +32,13 @@ context("Advance UI testing", function () {
 
         // Multiple Dropdown #4
         cy.xpath("//div[contains(@class,'css-1wa3eu0-placeholder')]").click();
+        cy.get('#react-select-4-option-0').click();
+        cy.get('#react-select-4-option-1').click();
+        cy.get('#react-select-4-option-2').click();
+        cy.get('#react-select-4-option-3').click();
+
+        // Choosing cars
+        cy.xpath("//select[@id='cars']").select('Audi', { force: true });
 
         
 
@@ -42,7 +49,7 @@ context("Advance UI testing", function () {
         // Verify Dropdown select option value, purple
         cy.xpath("//option[contains(@value,'4')]").should('have.value', 4);
         // Verify Multiple Dropdown
-        
+
 
 
         
