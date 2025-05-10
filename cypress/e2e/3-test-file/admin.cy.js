@@ -11,9 +11,27 @@ context('Orange HRM Admin Module UI Testing', function() {
     });
 
     it('Searching Budi Santoso', function() {
+        // Action for input data
         cy.get(':nth-child(2) > .oxd-input').click();
-        cy.get(':nth-child(2) > .oxd-input').type('Budi Santoso');
+        cy.get(':nth-child(2) > .oxd-input').type('Admin');
+
+        // verifying input data
+        cy.get(':nth-child(2) > .oxd-input').should('have.value', 'Admin');
+        // Action for select data
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon').click();
+        cy.xpath("//div[contains(@class,'oxd-select-option')]//span[text()='Admin']").click();
+
+        // verifying select data
+        cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text-input')
+        .should('have.text', 'Admin');      
+
+        // Action for input data autosuggestive dropdown
+        cy.xpath("//input[@placeholder='Type for hints...']").type('Bh');
+
+
+
 
     });
 });
+
+
