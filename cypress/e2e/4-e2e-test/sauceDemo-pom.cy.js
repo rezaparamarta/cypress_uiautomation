@@ -5,6 +5,7 @@ describe("Saucedemo Web Test", function() {
     beforeEach(function () {
         cy.fixture("loginData").as("data");
         cy.fixture("productData").as("products");
+        cy.login(Cypress.env("valid_username"), Cypress.env("valid_password"));
     });
     
 
