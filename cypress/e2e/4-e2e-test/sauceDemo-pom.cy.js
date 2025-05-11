@@ -1,9 +1,12 @@
 import loginPage from "../../pages/loginPage";
+import inventoryPage from "../../pages/inventoryPage";
 
 describe("Saucedemo Web Test", function() {
-    this.beforeEach(() => {
+    beforeEach(function () {
         cy.fixture("loginData").as("data");
+        cy.fixture("productData").as("products");
     });
+    
 
     it("Login with valid data and add Sauce Labs Pack into Cart", function() {
         loginPage.visit();
@@ -36,24 +39,33 @@ describe("Saucedemo Web Test", function() {
 
     it("Login with locked out user", function() {
         loginPage.loginUser(this.data.lockedOutUser);
-        loginPage.verifyLoginFailed();
+        loginPage.verifyLoginFailed(this.data.lockedOutUser);
     });
 
-    it("Login and add two items into cart", function() {
-        cy.visit("/")
+    it("Login with invaliduser", function() {
+        loginPage.loginUser(this.data.invalidUser);
+        loginPage.verifyLoginFailed(this.data.invalidUser);
+    });    
 
-        // Login
-        cy.get("#user-name").type("standard_user")
-        cy.get("#password").type("secret_sauce")
-        cy.get("#login-button").click()
-        cy.url().should('include', '/inventory.html');
-        cy.get(".app_logo").should("have.text", "Swag Labs");
+    it("Add to Cart", function () {
+        loginPage.loginUser(this.data.validUser);
+        inventoryPage.verifyInventoryPage();
+    
+        // Add to cart 2 products
+        inventoryPage.addProductToCart(this.products.productNames);
+    
+        // Verify products
+        inventoryPage.verifyCartItemCount(this.products.productNames.length);
+      });
 
-        // Add two items into cart
-        cy.get("#add-to-cart-sauce-labs-backpack").click();
-        cy.get("#add-to-cart-sauce-labs-bike-light").click();
-
-        // Verify Products
-        cy.get("[data-test='shopping-cart-badge']").should('have.text', '2');
-    });
+      it("Add to Cart with command login", function () {
+        cy.login(Cypress.env("valid_username"), Cypress.env("valid_password"));
+        inventoryPage.verifyInventoryPage();
+    
+        // Add to cart 2 products
+        inventoryPage.addProductToCart(this.products.productNames);
+    
+        // Verify products
+        inventoryPage.verifyCartItemCount(this.products.productNames.length);
+      });      
 });

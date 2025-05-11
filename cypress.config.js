@@ -16,7 +16,8 @@ module.exports = defineConfig({
     defualtCommandTimeout: 30000,
     baseUrl: "https://www.saucedemo.com/", // in milliseconds
     env: {
-      
+      valid_username: "standard_user",
+      valid_password: "secret_sauce",
     }
   },
 });

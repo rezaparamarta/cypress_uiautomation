@@ -1,18 +1,23 @@
 class inventoryPage {
     verifyInventoryPage() {
-        cy.url().should('eq', 'https://www.saucedemo.com/inventory.html');
-        cy.get(".app_logo").should('contain', 'Swag Labs');
+      cy.url().should("include", "/inventory.html");
+      cy.get(".app_logo").should("have.text", "Swag Labs");
     }
-
+  
     addProductToCart(productNames) {
-        productNames.forEach(nama => {
-            cy.get(`#add-to-cart-${nama}`).click();
-        })
+      productNames.forEach((name) => {
+        // cy.get("#add-to-cart-sauce-labs-backpack").click();
+        cy.get(`#add-to-cart-${name}`).click();
+      });
     }
-
+  
     verifyCartItemCount(expectedCount) {
-        cy.get('[data-test="shopping-cart-badge"]').should('contain', expectedCount);
+      cy.get('[data-test="shopping-cart-badge"]').should(
+        "have.text",
+        `${expectedCount}`
+      );
     }
-}
-
-export default new inventoryPage();
+  }
+  
+  export default new inventoryPage();
+  

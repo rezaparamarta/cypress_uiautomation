@@ -27,8 +27,10 @@ class loginPage {
         cy.xpath("//div[@class='app_logo']").should("have.text", "Swag Labs");
     }
 
-    verifyLoginFailed() {
-        cy.get('[data-test="error"]').should('be.visible').and('have.text', 'Epic sadface: Sorry, this user has been locked out.');
+    verifyLoginFailed(userData) {
+        cy.get('[data-test="error"]')
+          .should('be.visible')
+          .and('contain', userData.errorMsg);
     }
 
     clickSauceLabsBackpakc() {
