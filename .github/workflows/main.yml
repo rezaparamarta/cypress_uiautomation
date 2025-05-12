@@ -22,14 +22,22 @@ jobs:
         with:
           node-version: 22
 
-      - name: Clean and install dependencies
-        run: rm -rf node_modules package-lock.json && npm install
-
-      - name: Fix Cypress permissions
-        run: chmod +x node_modules/.bin/cypress
-
-      - name: Debug CI
-        run: ls -lah node_modules/.bin/
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run Cypress tests
-        run: ./node_modules/.bin/cypress run
+        run: npx cypress run
+
+      - name: Upload videos on failure (optional)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Upload screenshots on failure (optional)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots

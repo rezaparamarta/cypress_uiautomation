@@ -15,6 +15,8 @@ module.exports = defineConfig({
     supportFile:"cypress/support/e2e.js",
     defualtCommandTimeout: 30000,
     baseUrl: "https://www.saucedemo.com/", // in milliseconds
+    specPattern: "cypress/e2e/**/*.cy.js",
+    supportFile: "cypress/support/commands.js",
     env: {
       valid_username: "standard_user",
       valid_password: "secret_sauce",
