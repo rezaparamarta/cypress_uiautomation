@@ -27,10 +27,6 @@ context('Orange HRM Admin Module UI Testing', function() {
 
         // Action for input data autosuggestive dropdown
         cy.xpath("//input[@placeholder='Type for hints...']").type('Bh');
-
-
-
-
     });
 });
 
