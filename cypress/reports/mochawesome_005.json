@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-11T13:36:08.911Z",
+    "end": "2025-05-11T13:36:15.609Z",
+    "duration": 6698,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a1da1600-804b-41ec-9ed9-18bf2c7d71a7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\3-test-file\\calender.cy.js",
+      "file": "cypress\\e2e\\3-test-file\\calender.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a2de57ac-3dcf-41b9-ab6e-6a098f2bd76f",
+          "title": "Advance UI testing Datepicker",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "74d45838-9d94-42e5-a144-80ec0555e1c3",
+              "title": "e2e testing",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "9-Date set text",
+                  "fullTitle": "Advance UI testing Datepicker e2e testing 9-Date set text",
+                  "timedOut": null,
+                  "duration": 2284,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let url = \"https://jqueryui.com/datepicker/\";\nlet datepicker = `//input[@id='datepicker']`;\nlet date = \"10/05/2025\";\ncy.visit(url);\ncy.get(\"iframe.demo-frame\").then($iframe => {\n  const body = $iframe.contents().find(\"body\");\n  cy.wrap(body).xpath(datepicker).type(date).should(\"have.value\", date);\n});",
+                  "err": {},
+                  "uuid": "72b6fa25-3f40-40ba-9c77-51bc58ee414c",
+                  "parentUUID": "74d45838-9d94-42e5-a144-80ec0555e1c3",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "10-Date from date picker",
+                  "fullTitle": "Advance UI testing Datepicker e2e testing 10-Date from date picker",
+                  "timedOut": null,
+                  "duration": 1405,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"https://jqueryui.com/datepicker/\");\n// Masuk ke iframe\ncy.get(\"iframe.demo-frame\").then($iframe => {\n  const body = $iframe.contents().find(\"body\");\n  cy.wrap(body).as(\"iframeBody\");\n});\n// Klik input date\ncy.get(\"@iframeBody\").find(\"#datepicker\").click();\nconst targetMonth = \"May\";\nconst targetYear = \"2025\";\nconst targetDay = \"10\";\nfunction selectMonthYear() {\n  cy.get(\"@iframeBody\").find(\".ui-datepicker-title\").then($el => {\n    const currentMonth = $el.find(\".ui-datepicker-month\").text().trim();\n    const currentYear = $el.find(\".ui-datepicker-year\").text().trim();\n    if (currentMonth !== targetMonth || currentYear !== targetYear) {\n      cy.get(\"@iframeBody\").find(\".ui-datepicker-next\").click();\n      selectMonthYear(); // recursive check again\n    }\n  });\n}\n// Jalankan pemilihan bulan & tahun\nselectMonthYear();\n// Setelah bulan & tahun sesuai, klik tanggal\ncy.get(\"@iframeBody\").find(\".ui-datepicker-calendar td:not(.ui-datepicker-other-month)\").contains(targetDay).click();\n// Verifikasi hasil input\ncy.get(\"@iframeBody\").find(\"#datepicker\").should(\"have.value\", \"05/10/2025\");",
+                  "err": {},
+                  "uuid": "e5ba591d-5e92-4001-baa1-3ade34f78aa3",
+                  "parentUUID": "74d45838-9d94-42e5-a144-80ec0555e1c3",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "72b6fa25-3f40-40ba-9c77-51bc58ee414c",
+                "e5ba591d-5e92-4001-baa1-3ade34f78aa3"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3689,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-11T13:35:41.668Z",
+    "end": "2025-05-11T13:35:53.044Z",
+    "duration": 11376,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2db00f68-980e-4e35-9536-9ff153a2fc6c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\3-test-file\\admin.cy.js",
+      "file": "cypress\\e2e\\3-test-file\\admin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1871d562-4743-4189-95a2-6a705638342a",
+          "title": "Orange HRM Admin Module UI Testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Searching Budi Santoso",
+              "fullTitle": "Orange HRM Admin Module UI Testing Searching Budi Santoso",
+              "timedOut": null,
+              "duration": 8337,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Action for input data\ncy.get(':nth-child(2) > .oxd-input').click();\ncy.get(':nth-child(2) > .oxd-input').type('Admin');\n// verifying input data\ncy.get(':nth-child(2) > .oxd-input').should('have.value', 'Admin');\n// Action for select data\ncy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon').click();\ncy.xpath(\"//div[contains(@class,'oxd-select-option')]//span[text()='Admin']\").click();\n// verifying select data\ncy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text-input').should('have.text', 'Admin');\n// Action for input data autosuggestive dropdown\ncy.xpath(\"//input[@placeholder='Type for hints...']\").type('Bh');",
+              "err": {},
+              "uuid": "ee7a60a1-eb52-4464-b27f-7f4985907873",
+              "parentUUID": "1871d562-4743-4189-95a2-6a705638342a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ee7a60a1-eb52-4464-b27f-7f4985907873"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8337,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
