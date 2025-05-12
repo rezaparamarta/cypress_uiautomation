@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-12T03:32:40.146Z",
+    "end": "2025-05-12T03:32:49.680Z",
+    "duration": 9534,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "73c33516-6079-41d1-bbd4-d4d4c07be123",
+      "title": "",
+      "fullFile": "cypress\\e2e\\3-test-file\\dropdown.cy.js",
+      "file": "cypress\\e2e\\3-test-file\\dropdown.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6828e9e2-6d0a-413b-88c1-de767008042d",
+          "title": "Advance UI testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "156c1476-564e-439c-88ac-18e978c17829",
+              "title": "e2e testing",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Static Dropdown By Index",
+                  "fullTitle": "Advance UI testing e2e testing Static Dropdown By Index",
+                  "timedOut": null,
+                  "duration": 3908,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let url = \"https://demo.automationtesting.in/Register.html\";\n// Input data\ncy.visit(url, {\n  failOnStatusCode: false\n}); // Ignore load error\ncy.xpath(\"//input[@placeholder='First Name']\").type(\"John\");\ncy.xpath(\"//input[@placeholder='Last Name']\").type(\"Doe\");\ncy.get('.col-md-8 > .form-control').click();\ncy.get('.col-md-8 > .form-control').type(\"Ujung Berung\");\ncy.xpath(\"//input[@type='email']\").type(\"john@doe.com\");\ncy.xpath(\"//input[@type='tel']\").type(\"123456789\");\ncy.xpath(\"//input[@value='Male']\").click();\ncy.xpath(\"//input[@id='checkbox2']\").click();\n// Get By Indexical Numbers dropdown select\ncy.xpath(\"//select[@id='Skills']\").select(5);",
+                  "err": {},
+                  "uuid": "70be4e9d-581b-499c-85c3-27725cfec3ce",
+                  "parentUUID": "156c1476-564e-439c-88ac-18e978c17829",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Static Dropdown By Visible Text",
+                  "fullTitle": "Advance UI testing e2e testing Static Dropdown By Visible Text",
+                  "timedOut": null,
+                  "duration": 1180,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let url = \"https://demo.automationtesting.in/Register.html\";\nlet dropdownXpath = `//select[@id='Skills']`;\ncy.visit(url, {\n  failOnStatusCode: false\n}); // Ignore load error\ncy.xpath(dropdownXpath).select('CSS');",
+                  "err": {},
+                  "uuid": "c8165ee7-c2bb-4443-9b4f-f8e6ad9149cb",
+                  "parentUUID": "156c1476-564e-439c-88ac-18e978c17829",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Static Dropdown By Value",
+                  "fullTitle": "Advance UI testing e2e testing Static Dropdown By Value",
+                  "timedOut": null,
+                  "duration": 1810,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let url = \"https://demo.automationtesting.in/Register.html\";\nlet dropdownXpath = `//select[@id='Skills']`;\ncy.visit(url, {\n  failOnStatusCode: false\n}); // Ignore load error\ncy.xpath(dropdownXpath).select('APIs');",
+                  "err": {},
+                  "uuid": "d549b576-fec8-495c-a83d-a3a836c845db",
+                  "parentUUID": "156c1476-564e-439c-88ac-18e978c17829",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "70be4e9d-581b-499c-85c3-27725cfec3ce",
+                "c8165ee7-c2bb-4443-9b4f-f8e6ad9149cb",
+                "d549b576-fec8-495c-a83d-a3a836c845db"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6898,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
