@@ -35,7 +35,7 @@ jobs:
         run: npx cypress run --spec 'cypress/e2e/4-e2e-test/*.cy.js'
 
       - name: Upload Cypress Reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
           path: cypress/reports/html
